@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>天域纵横 视差滚动</title>
+	<link rel="stylesheet" href="/Public/css/styles.css">
+	<script type="text/javascript" src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="box box-1">
+		<div class="icon-all">
+			<div class="icon icon-1"></div>
+			<div class="icon icon-2"></div>
+			<div class="icon icon-3"></div>
+		</div>
+	</div>
+	<div class="box box-2">
+		2
+	</div>
+	<div class="box box-3">
+		3
+	</div>
+	<nav class="nav">
+		<ul>
+			<li id="1">首页</li>
+			<li id="2">关于</li>
+			<li id="3">联系</li>
+		</ul>
+		<span>点我显示导航栏</span>
+	</nav>
+	<script type="text/javascript">
+		$(function(){
+			$(".nav li").click(function(){
+				var page = $(this).attr("id");
+				$(".icon-all").animate({left:(page-1)*(-1500)});
+			});
+
+			var a =$(".nav ul");
+			a.hide();
+			$(".nav span").click(function(){
+				if(a.is(':visible')){
+					a.slideUp('fast');
+					 
+				}else{
+					a.slideDown('fast');	
+				}
+			});
+		});
+	</script>
+</body>
+</html>
